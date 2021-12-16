@@ -1,0 +1,117 @@
+package com.example.Ejercicio3.repository;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "st_customer")
+public class CustomerRepositoryImpl implements Serializable {
+
+
+	private static final long serialVersionUID = 1L;
+
+	private Long id;
+
+	private String name;
+	
+	private String surName1;
+
+	private String surName2;
+
+	private String dni;
+
+	/**
+	 * @return the id
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public Long getId() {
+		return id;
+	}
+
+	/**
+	 * @param id
+	 *            the id to set
+	 */
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	/**
+	 * @return the name
+	 */
+	@Column(name = "NAME", nullable = false)
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param name
+	 *            the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * @return the surName1
+	 */
+	@Column(name = "SURNAME1", nullable = false)
+	public String getSurName1() {
+		return surName1;
+	}
+
+	/**
+	 * @param surName1
+	 *            the surName1 to set
+	 */
+	public void setSurName1(String surName1) {
+		this.surName1 = surName1;
+	}
+
+	/**
+	 * @return the surName2
+	 */
+	@Column(name = "SURNAME2", nullable = false)
+	public String getSurName2() {
+		return surName2;
+	}
+
+	/**
+	 * @param surName2
+	 *            the surName2 to set
+	 */
+	public void setSurName2(String surName2) {
+		this.surName2 = surName2;
+	}
+
+	/**
+	 * @return the identityDocNumber
+	 */
+	@Column(name = "DNI", nullable = false, unique = true)
+	public String getDni() {
+		return dni;
+	}
+
+	/**
+	 * @param identityDocNumber
+	 *            the identityDocNumber to set
+	 */
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
+
+	@Override
+	public String toString() {
+
+		return "Customer [id=" + id + ", name=" + name + ", surName1=" + surName1 + ", surName2=" + surName2 + ", dni="
+		        + dni + "]";
+	}
+
+}
